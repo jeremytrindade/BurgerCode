@@ -35,7 +35,7 @@
                         echo '<tr>';
                             echo '<td>' . $item['name'] . '</td>';
                             echo '<td>' . $item['description'] . '</td>';
-                            echo '<td>' . $item['price'] . '</td>';
+                            echo '<td>' . number_format((float)$item['price'],2,'.','') . '</td>';
                             echo '<td>' . $item['category'] . '</td>';
                             echo '<td width=300>';
                                 echo '<a href="view.php?id=' . $item['id'] . '" class="btn btn-default"><span class="glyphicon glyphicon-eye-open"></span> Voir</a> ';
@@ -44,6 +44,7 @@
                             echo '</td>';
                         echo '</tr>';
                     }
+                    Database::disconnect();
                     ?>
                     
                 </tbody>
