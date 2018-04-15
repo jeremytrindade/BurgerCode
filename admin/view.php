@@ -57,8 +57,8 @@
                         <label>Image:</label><?php echo '  ' . $item['image']; ?>
                     </div>
                 </form>
+                <br>
                 <div class="form-actions">
-                    <br>
                     <a href="index.php" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span> Retour</a>
                 </div>
             </div>
