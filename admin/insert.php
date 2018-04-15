@@ -42,7 +42,7 @@
         }
         else
         {
-            isUploadSuccess = true;
+            $isUploadSuccess = true;
             if($imageExtension != "jpg" && $imageExtension != "png" && $imageExtension != "jpeg" && $imageExtension != "gif")
             {
                 $imageError = "Les fichiers autorises sont: .jpg, .jpeg, .png, .gif";
