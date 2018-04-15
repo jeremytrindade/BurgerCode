@@ -10,14 +10,14 @@
 
     if(!empty($_POST))
     {
-        $name                       = checkInput($_POST['name']);
-        $description                = checkInput($_POST['description']);
-        $price                      = checkInput($_POST['price']);
-        $category                   = checkInput($_POST['category']);
-        $image                      = checkInput($_FILLES['image']['name']);
-        $imagePath/*caminho*/       = '../images/' . basename($image); //para ficar com o nome que tinha
-        $imageExten                 = pathinfo($imagePath, PATHINFO_EXTENSION);//para ter o typo de ficheiro
-        $isSuccess                  = true;
+        $name               = checkInput($_POST['name']);
+        $description        = checkInput($_POST['description']);
+        $price              = checkInput($_POST['price']);
+        $category           = checkInput($_POST['category']);
+        $image              = checkInput($_FILES["image"]["name"]);
+        $imagePath          = '../images/'. basename($image);
+        $imageExtension     = pathinfo($imagePath,PATHINFO_EXTENSION);
+        $isSuccess          = true;
         
         if(empty($name))
         {
@@ -91,7 +91,7 @@
         else if($isImageUpdated && !$isUploadSuccess)
         {
             $db = Database::connect();
-            $statement = $db->prepare("SELECT image FROM items where is = ?");
+            $statement = $db->prepare("SELECT * FROM items where id = ?");
             $statement->execute(array($id));
             $item = $statement->fetch();
             $image      = $item['image'];
@@ -204,3 +204,4 @@
     </div>
     </body>
 </html>
+
